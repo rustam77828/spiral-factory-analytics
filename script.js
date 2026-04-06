@@ -2,7 +2,6 @@ import 'dotenv/config';
 import { MongoClient } from 'mongodb';
 
 async function main() {
-    // Берём данные из твоего .env
     const client = new MongoClient(process.env.MONGO_URI);
 
     try {
@@ -10,7 +9,6 @@ async function main() {
         const db = client.db(process.env.DB_NAME);
         const collection = db.collection('logs');
 
-        // Твой сценарий агрегации
         const pipeline = [
             {
                 '$group': {
